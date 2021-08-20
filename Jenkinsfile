@@ -34,35 +34,7 @@ pipeline {
         archive 'target/app*.war'
       }
     }
-    stage('Deploy to nexus') {
-      steps {
-        script {
-          sh "mvn -s settings.xml -Drevision=$ARTI_VER deploy"
-        }
-      }
-    }
-    stage('build docker image') {
-      steps {
-        script {
-		  withDockerServer([uri: 'tcp://192.168.32.23:2375']) {
-            appImage = docker.build("vaibhavprajapati12/userapis", ".")
-		  }
-        }
-      }
-   }
-   stage('push docker image') {
-      steps {
-		script {
-		  withDockerServer([uri: 'tcp://192.168.32.23:2375']) {
-			withDockerRegistry(credentialsId: 'docker-hub', url: 'https://index.docker.io/v1/') {
-			  appImage.push("${env.BUILD_NUMBER}")
-			  appImage.push("latest")
-			}
-		  }
-        }
-      }
-    }
-  }  
+  } 
   post {
     success {
       office365ConnectorSend color: '#00cc00', message: "Success  ${JOB_NAME} build_number:${BUILD_NUMBER}, branch:${BRANCH_NAME} url:(<${BUILD_URL}>)", status: 'SUCCESS', webhookUrl: "${TEAMS_WEBHOOK}"
