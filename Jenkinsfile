@@ -17,7 +17,7 @@ pipeline {
     stage('Build') {
       steps {
 		script {
-          sh "mvn -s settings.xml -Drevision=$ARTI_VER clean package"
+          sh "mvn -s .settings/ -Drevision=$ARTI_VER clean package"
         }
       }
     }
