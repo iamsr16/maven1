@@ -3,12 +3,17 @@
   <groupId>com.task</groupId>
   <artifactId>maven1</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  
+<distributionManagement>
+      <repository>
+         <id>nexus</id>
+         <url>http://192.168.32.21:30005/repository/maven-hosted-app/</url>
+      </repository>
+</distributionManagement>
   <build>
     <plugins>
-		 <plugin>
-			<groupId>org.jacoco</groupId>
-			<artifactId>jacoco-maven-plugin</artifactId>
+	 <plugin>
+		<groupId>org.jacoco</groupId>
+		  <artifactId>jacoco-maven-plugin</artifactId>
 			<version>0.8.2</version>
 			<executions>
 			   <execution>
