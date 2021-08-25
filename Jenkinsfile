@@ -24,7 +24,7 @@ pipeline {
    stage('Deploy to nexus') {
       steps {
         script {
-          sh "mvn -s settings.xml -Drevision=$ARTI_VER deploy"
+         nexusPublisher nexusInstanceId: '', nexusRepositoryId: '', packages: []
         }
       }
     }
