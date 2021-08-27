@@ -37,7 +37,7 @@ pipeline {
 		 nexusUrl: 'localhost:8081', 
 		 nexusVersion: 'nexus3', 
 		 protocol: 'http',
-		 repository: 'http://localhost:8081/repository/Demorepo/',
+		 repository: 'Demorepo',
 		 version: '0.0.1'
         }
       }
