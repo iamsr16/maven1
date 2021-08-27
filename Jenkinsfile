@@ -37,7 +37,7 @@ pipeline {
 		nexusUrl: '192.168.43.76:8081', 
 		nexusVersion: 'nexus3', 
 		protocol: 'http', 
-		repository: 'mavenrepo', version: '0.0.1-SNAPSHOT'
+		repository: 'Demorepo', version: '0.0.1-SNAPSHOT'
         }
       }
     }
