@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.task</groupId>
   <artifactId>maven1</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
 <distributionManagement>
       <repository>
          <id>nexus</id>
