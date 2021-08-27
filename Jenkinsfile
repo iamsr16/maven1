@@ -40,15 +40,23 @@ pipeline {
 		repository: 'Demorepo', version: '0.0.1-SNAPSHOT'
         }
       }
-    }
-  }	    
-  post {
-    success {
-      office365ConnectorSend color: '#00cc00', message: "Success  ${JOB_NAME} build_number:${BUILD_NUMBER}, branch:${env.BRANCH_NAME} url:(<${BUILD_URL}>)", status: 'SUCCESS', webhookUrl: "${TEAMS_WEBHOOK}"
-    }
-    failure {
-      office365ConnectorSend color: '#fc2c03', message: "Failed  ${JOB_NAME} build_number:${BUILD_NUMBER}, branch:${env.BRANCH_NAME} url:(<${BUILD_URL}>)", status: 'FAILED', webhookUrl:"${TEAMS_WEBHOOK}"
-    }
-   }
+	   stage('Building docker image') {
+		   steps {
+			   script {
+				    dockering = docker.build registry + ":$BUILD NUMBER"
+			   }
+		   }
+	   }
+	   stage ('Deploy docker image') {
+		   steps {
+			   script { 
+				   docker.withRegistry('', registryCredential )
+				   {
+					   dockering.push("${env.BUILD_NUMBER}")
+					   dockering.push("latest")
+				   }
+			   }
+             }
+        }	    
  }
 
