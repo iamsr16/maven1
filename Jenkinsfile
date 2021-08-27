@@ -28,7 +28,7 @@ pipeline {
 		[
 			artifactId: 'maven1',
 			classifier: '',
-			file: 'target/maven1-0.0.1.jar', 
+			file: 'target/maven1-0.0.1-SNAPSHOT.jar', 
 			type: 'jar'
 		]
 	], 
@@ -37,7 +37,7 @@ pipeline {
 		nexusUrl: '192.168.43.76:8081', 
 		nexusVersion: 'nexus3', 
 		protocol: 'http', 
-		repository: 'mavenrepo', version: '0.0.1'
+		repository: 'mavenrepo', version: '0.0.1-SNAPSHOT'
         }
       }
     }
