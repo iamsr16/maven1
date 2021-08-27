@@ -9,7 +9,7 @@ pipeline {
     stage('Create Version') {
       steps {
         script {
-          ARTI_VER = "${env.BRANCH_NAME}-${BUILD_NUMBER}"
+          ARTI_VER = "${env.GIT_RANCH}-${BUILD_NUMBER}"
           echo "${ARTI_VER}"
         }
       }
@@ -28,8 +28,8 @@ pipeline {
 		 [
 			 artifactId: 'maven1',
 			 classifier: '', 
-			 file: 'target/maven1-0.0.1.war', 
-			 type: 'war'
+			 file: 'target/maven1-0.0.1.jar', 
+			 type: 'jar'
 		 ]
 	 ], 
 		 credentialsId: 'nexus3',
