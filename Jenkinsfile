@@ -24,21 +24,7 @@ pipeline {
    stage('Deploy to nexus') {
       steps {
         script {
-         nexusArtifactUploader artifacts: [
-		 [
-			 artifactId: 'maven1',
-			 classifier: '', 
-			 file: 'target/maven1-0.0.1.jar', 
-			 type: 'jar'
-		 ]
-	 ], 
-		 credentialsId: 'nexus3',
-		 groupId: 'com.task', 
-		 nexusUrl: 'localhost:8081', 
-		 nexusVersion: 'nexus3', 
-		 protocol: 'http',
-		 repository: 'Demorepo',
-		 version: '0.0.1'
+        nexusArtifactUploader artifacts: [[artifactId: 'maven1', classifier: '', file: 'target/maven1-0.0.1.jar', type: 'jar']], credentialsId: 'nexus3', groupId: 'com.task', nexusUrl: '192.168.43.76:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'Demorepo', version: '0.0.1'
         }
       }
     }
