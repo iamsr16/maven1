@@ -40,6 +40,7 @@ pipeline {
 		repository: 'Demorepo', version: '0.0.1-SNAPSHOT'
         }
       }
+   }
 	   stage('Building docker image') {
 		   steps {
 			   script {
@@ -59,4 +60,4 @@ pipeline {
              }
         }	    
  }
-
+}
