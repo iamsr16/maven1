@@ -14,7 +14,7 @@ pipeline {
     stage('Create Version') {
       steps {
         script {
-          ARTI_VER = "${env.GIT_RANCH}-${BUILD_NUMBER}"
+          ARTI_VER = "${env.GIT_BRANCH}-${BUILD_NUMBER}"
           echo "${ARTI_VER}"
         }
       }
@@ -49,7 +49,7 @@ pipeline {
  stage('Building docker image') {
 		   steps {
 			   script {
-				    dockering = docker.build registry + ":$BUILD NUMBER"
+				    dockering = docker.build registry + ":$BUILD_NUMBER"
 			   }
 		   }
 	   }
