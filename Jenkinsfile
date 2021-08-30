@@ -8,7 +8,7 @@ pipeline {
 	environment { 
         registry = "shreyaa1605/mavenrepo" 
         registryCredential = 'shreyaa1605' 
-        dockerImage = '' 
+        dockering = '' 
     }
   stages {
     stage('Create Version') {
