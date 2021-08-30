@@ -39,24 +39,35 @@ pipeline {
 		protocol: 'http', 
 		repository: 'Demorepo', version: '0.0.1-SNAPSHOT'
         }
-      }
+      } stage('Building our image') { 
+15
+            steps { 
+16
+                script { 
+17
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER" 
+18
+                }
+19
+            } 
+20
+        }
+21
+        stage('Deploy our image') { 
+22
+            steps { 
+23
+                script { 
+24
+                    docker.withRegistry( '', registryCredential ) { 
+25
+                        dockerImage.push() 
+26
+                    }
+27
+                } 
    }
-	   stage('Building docker image') {
-		   steps {
-			   script {
-				    dockering = docker.build registry + ":$BUILD NUMBER"
-			   }
-		   }
-	   }
-	   stage ('Deploy docker image') {
-		   steps {
-			   script { 
-				   docker.withRegistry('', registryCredential )
-				   {
-					   dockering.push("${env.BUILD_NUMBER}")
-					   dockering.push("latest")
-				   }
-			   }
+	   
              }
         }	    
  }
