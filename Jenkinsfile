@@ -5,6 +5,11 @@ pipeline {
   tools {
     maven 'Maven 3.6'
   }
+	environment { 
+        registry = "shreyaa1605/mavenrepo" 
+        registryCredential = 'shreyaa1605' 
+        dockerImage = '' 
+    }
   stages {
     stage('Create Version') {
       steps {
@@ -40,34 +45,22 @@ pipeline {
 		repository: 'Demorepo', version: '0.0.1-SNAPSHOT'
         }
       } stage('Building our image') { 
-15
+
             steps { 
-16
                 script { 
-17
                     dockerImage = docker.build registry + ":$BUILD_NUMBER" 
-18
                 }
-19
             } 
-20
         }
-21
         stage('Deploy our image') { 
-22
             steps { 
-23
                 script { 
-24
                     docker.withRegistry( '', registryCredential ) { 
-25
                         dockerImage.push() 
-26
                     }
-27
                 } 
-   }
-	   
+         }
+ 	   
              }
         }	    
  }
