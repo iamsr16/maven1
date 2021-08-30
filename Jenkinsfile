@@ -7,7 +7,7 @@ pipeline {
   }
 	environment { 
         registry = "shreyaa1605/mavenrepo" 
-        registryCredential = 'shreyaa1605' 
+        registryCredential = 'dockerhub_id' 
         dockering = '' 
     }
   stages {
