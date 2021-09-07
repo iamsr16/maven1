@@ -70,7 +70,7 @@ pipeline {
 		   steps {
 			   script {
 				      sh '''
-				      docker run -d --name -dP linux/amd64
+				     docker run -dP shreyaa1605/mavenrepo
 
         sleep 15 # wait for db to come up
         docker run -p 6060:6060 --link db:postgres -d --name clair arminc/clair-local-scan
