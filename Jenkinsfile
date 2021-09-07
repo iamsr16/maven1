@@ -70,7 +70,7 @@ pipeline {
 		   steps {
 			   script {
 				      sh '''
-				    docker run -d --name db arminc/clair-db
+				    docker run -d --name db arminc/clair-db:latest
 
 
         sleep 15 # wait for db to come up
