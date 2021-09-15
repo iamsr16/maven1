@@ -7,7 +7,7 @@
 <distributionManagement>
       <repository>
          <id>nexus</id>
-         <url>http://192.168.43.76:8081/repository/Demorepo/</url>
+         <url>http://192.168.32.21:30005/repository/maven-hosted-app/</url>
       </repository>
 </distributionManagement>
   <build>
