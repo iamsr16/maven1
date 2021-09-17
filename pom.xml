@@ -4,12 +4,14 @@
   <artifactId>maven1</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>maven1</name>
-	<distributionManagement>
+	
+<distributionManagement>
       <repository>
          <id>nexus</id>
-         <url>http://192.168.32.21:30005/repository/maven-hosted-app/</url>
+         <url>http://localhost:8081/repository/maven-hosted-app/</url>
       </repository>
 </distributionManagement>
+	
   <build>
     <plugins>
 	 <plugin>
