@@ -5,10 +5,17 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>maven1</name>	
 <distributionManagement>
-      <repository>
-         <id>nexus</id>
-         <url>http://192.168.32.21:30005/repository/maven-hosted-app/</url>
-      </repository>
+    <repository>
+        <id>nexus</id>
+        <name>nexus</name>
+        <url>http://localHost:8081/repository/Demorepo/</url>
+    </repository>
+
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>Snapshots</name>
+        <url>http://localHost:8081/repository/Demorepo/</url>
+    </snapshotRepository>
 </distributionManagement>
   <build>
     <plugins>
