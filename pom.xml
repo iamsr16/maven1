@@ -3,20 +3,7 @@
   <groupId>com.task</groupId>
   <artifactId>maven1</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>maven1</name>	
-<distributionManagement>
-    <repository>
-        <id>nexus</id>
-        <name>nexus</name>
-        <url>http://localHost:8081/repository/Demorepo/</url>
-    </repository>
-
-    <snapshotRepository>
-        <id>snapshots</id>
-        <name>Snapshots</name>
-        <url>http://localHost:8081/repository/Demorepo/</url>
-    </snapshotRepository>
-</distributionManagement>
+  <name>maven1</name>
   <build>
     <plugins>
 	 <plugin>
